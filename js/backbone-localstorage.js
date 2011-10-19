@@ -17,7 +17,6 @@ function guid() {
 var Store = function(name) {
   this.name = name;
   var store = localStorage.getItem(this.name);
-  console.log(store);
   this.data = (store && JSON.parse(store)) || {};
 };
 

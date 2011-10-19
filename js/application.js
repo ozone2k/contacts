@@ -63,12 +63,13 @@
 			'click .del' : 'remove',
 			'click .edit' : 'editcontact',
 			'keypress input.editThis' : 'onEnterEdit',
+			'blur input.editThis' : 'onExitEdit',
 			'click .contactname' : 'viewDetails'
 			
 		},
 		
 		initialize : function(){
-			_.bindAll(this, 'render','alertContact', 'remove', 'unrender', 'editcontact', 'onEnterEdit', 'viewDetails');
+			_.bindAll(this, 'render','alertContact', 'remove', 'unrender', 'editcontact', 'onEnterEdit', 'viewDetails', 'onExitEdit');
 			this.model.bind('remove', this.unrender);	
 			this.model.bind('save', this.render);
 		},
@@ -96,17 +97,23 @@
 		
 		editcontact : function (){
 			$(this.el).html("<input type='text' class='editThis' value='"+ this.model.get("firstname") +" " + this.model.get("lastname") +"'>");
+			$('.editThis', this.el).focus();
 			app_router.navigate("!/user/" + this.model.get("firstname"), false);	
+		},
+		onExitEdit : function (){
+			this.render();	
 		},
 		
 		onEnterEdit : function(e){
-			console.log(e.keyCode);
-			if (e.keyCode == 13){
+			var keypressed = e.keyCode;
+			if (keypressed == 13){
 				var fullnameArray = $('.editThis',this.el).val().split(' ');
 				var firstname = fullnameArray[0];
 				var lastname = fullnameArray[1];
 				this.model.save({firstname:firstname, lastname:lastname});
 				this.render();
+			} else if (keypressed == 27){
+				this.onExitEdit();
 			}
 		},
 		
