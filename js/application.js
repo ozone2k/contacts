@@ -124,6 +124,25 @@
 		
 	});
 	
+	/* CONTINUE TO WORK ON THIS LATER
+	
+	var EditView = Backbone.View.extend({
+		//model will be passed on view call for edit or not for new
+		el : $('div.editView'),
+		
+		initialize : function(){
+			if (_.isUndefined(this.model) ){
+				this.model = {firstname:'',lastname:'',email:'',phone:'',address:''}
+			}
+			this.render();
+		},
+		
+		render : function(){
+			
+		}
+		
+	});
+	*/
 	
 	var ContactsView = Backbone.View.extend({
 		el:$('body'), // the app view will attach to the existing body tag in the html
