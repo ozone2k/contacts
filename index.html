@@ -1,65 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<title>Contacts - Learning Backbone.js</title>
 <link rel="stylesheet" href="js/colorbox/colorbox.css" media="all" />
 </head>
 
 <body>
 
-<script src="js/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="js/jquery-1.6.4.js"></script>
 <script src="js/colorbox/jquery.colorbox.js"></script>
-<script src="js/underscore.js" type="text/javascript"></script>
-<script src="js/backbone.js" type="text/javascript"></script>
-<script src="js/backbone-localstorage.js" type="text/javascript"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/backbone-localstorage.js"></script>
 
-<script src="js/application.js" type="text/javascript"></script>
+<script src="js/application.js"></script>
 
+
+<!-- Templates to be used by the backbone.js application -->
 
 <script type="text/template" id="eachContact_template">
-    <!-- Access template variables with <%= %> -->
 	<span class='contact-name'>{{firstname}} {{lastname}}</span> 
-	<button class='edit'>Edit</button>
+	<button class='edit'>View/Edit</button>
 	<button class='del'>X</button>
-    
 </script>
-
 
 <script type="text/template" id="edit_template">
-    <!-- Access template variables with <%= %> -->
 	<form id="userdetailform">
-	<div>
-	First name:
-	<input type="text" id="firstname" value="{{firstname}}">
-	</div>
-	
-	<div>
-	Last name :
-	<input type="text" id="lastname" value="{{lastname}}">
-	</div>
-	
-	<div>
-	Phone:
-	<input type="text" id="phone" value="{{phone}}">
-	</div>
-	
-	<div>
-	Email:
-	<input type="text" id="email" value="{{email}}">
-	</div>
-	
-	<div>
-	Address:
-	<input type="text" id="address" value="{{address}}">
-	</div>
+		<div>
+			First name:
+			<input type="text" id="f-firstname" value="{{firstname}}">
+		</div>
+		
+		<div>
+			Last name :
+			<input type="text" id="f-lastname" value="{{lastname}}">
+		</div>
+		
+		<div>
+			Email :
+			<input type="text" id="f-email" value="{{email}}">
+		</div>
+		
+		<div>
+			Phone :
+			<input type="text" id="f-phone" value="{{phone}}">
+		</div>
+		
+		<div>
+			Address :
+			<input type="text" id="f-address" value="{{address}}">
+		</div>
+		
+		<a href="#" id="cancelBtn">Cancel</a>
+		<button id="saveBtn">Save</button>
 	</form>
-	
-	
-	<span class='contact-name'>{{firstname}} {{lastname}}</span> 
-	<button class='edit'>Edit</button>
-	<button class='del'>X</button>
-    
 </script>
+
 </body>
 </html>
